@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.u-stroke{
+  -webkit-text-stroke: 1px black;
+  color: black;
+  -webkit-text-fill-color: white;
+}
