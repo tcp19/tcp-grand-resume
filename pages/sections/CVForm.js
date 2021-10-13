@@ -110,7 +110,7 @@ export default function CVForm() {
     return (
         <Box minH={'100vh'} w={'100%'} my="4" >
             <Flex direction={{ base: 'column-reverse', xl: 'row' }} color="white">
-                <Box boxShadow="2xl" mr="5px" p="6" rounded="md" w={{ base: '100%', xl: "25vw" }}  bg="#ffffff">
+                <Box boxShadow="xs" mr="5px" p="6" rounded="md" w={{ base: '100%', xl: "25vw" }}  bg="#ffffff">
                   <Text color="#181C27" fontWeight="bold" >Fill Section</Text>
 
                  {/* section selection container */}
