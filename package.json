@@ -9,7 +9,9 @@
     "lint": "next lint",
     "test": "jest --watch",
     "test:noWatch": "jest --watch=false",
-    "test:coverage": "jest --coverage --watchAll=false"
+    "test:coverage": "jest --coverage --watchAll=false",
+    "lint:fix": "next lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",
@@ -28,8 +30,10 @@
     "babel-jest": "^27.2.5",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
+    "husky": "^7.0.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.2.5",
+    "lint-staged": "^11.2.3",
     "react-test-renderer": "^17.0.2"
   }
 }
