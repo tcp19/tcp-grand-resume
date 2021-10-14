@@ -110,7 +110,7 @@ export default function CVForm() {
     return (
         <Box minH={'100vh'} w={'100%'} my="4" >
             <Flex direction={{ base: 'column-reverse', xl: 'row' }} color="white">
-                <Box boxShadow="xs" mr="5px" p="6" rounded="md" w={{ base: '100%', xl: "25vw" }}  bg="#ffffff">
+                <Box boxShadow="2xl" mr="5px" p="6" rounded="md" w={{ base: '100%', xl: "25vw" }} minH="80vh" bg="#ffffff">
                   <Text color="#181C27" fontWeight="bold" >Fill Section</Text>
 
                  {/* section selection container */}
@@ -156,6 +156,7 @@ export default function CVForm() {
                             <Text color="#181C27" fontWeight="bold" >About</Text>
                             <Divider />
                         </>
+
                         <Stack direction={["column", "row"]} spacing="24px">
                             <FormInput placeholder="First name" value={record.firstName} onChange={handleInputChange('firstName')} />
                             <FormInput placeholder="Last name" value={record.lastName} onChange={handleInputChange('lastName')} />
@@ -185,7 +186,7 @@ export default function CVForm() {
                     </VStack>
                     {record.workExperiences && record.workExperiences.map((work, idx) => (
 
-                        <VStack key={idx} spacing="24px" mt={"40px"} align="stretch">
+                        <VStack borderRadius={"lg"} bg="gray.100" padding="35px 30px" key={idx} spacing="24px" mt={"40px"} align="stretch">
 
                             <Stack direction={["column", "row"]} spacing="24px">
                                 <FormInput placeholder="Company" value={work.company} onChange={handleFieldChange('workExperiences', 'company', idx)} />
@@ -223,7 +224,7 @@ export default function CVForm() {
                     </VStack>
                     {record.education && record.education.map((edu, idx) => (
 
-                        <VStack key={idx} spacing="24px" mt={"40px"} align="stretch">
+                        <VStack borderRadius={"lg"} bg="gray.100" padding="35px 30px" key={idx} spacing="24px" mt={"40px"} align="stretch">
 
                             <Stack direction={["column", "row"]} spacing="24px">
                                 <FormInput placeholder="Institution" value={edu.institution} onChange={handleFieldChange('education', 'institution', idx)} />
