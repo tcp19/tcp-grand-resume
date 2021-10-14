@@ -1,4 +1,4 @@
-export function formatDate(date) {
+ export function formatDate(date) {
     if (!date) {
       return "";
     }
@@ -10,3 +10,4 @@ export function formatDate(date) {
     };
     return new Date(date).toLocaleDateString("en-US", options);
   }
+
