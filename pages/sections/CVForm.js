@@ -90,8 +90,6 @@ export default function CVForm() {
         if (typeof idx === 'number') {
             let skills = record.skills;
             skills.splice(idx, 1)
-            console.log({ idx });
-            console.log({ skills })
             setRecord({ ...record, skills })
             setSkill('')
         }
