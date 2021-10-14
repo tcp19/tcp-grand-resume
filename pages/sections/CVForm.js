@@ -1,16 +1,20 @@
-import { Box, Flex, Text, Stack, Divider, VStack, Textarea, Checkbox, Button, HStack, SimpleGrid, Icon } from '@chakra-ui/react';
+import { Box, Flex, Text, Stack, Divider, VStack, Textarea, Checkbox, Tag, Button, TagLabel, TagCloseButton, HStack, SimpleGrid, Icon } from '@chakra-ui/react';
 import React, { useRef, useState } from 'react';
 import FormInput from '../../components/FormInput';
 import { formatDate } from '../../utils/formatDate';
 import { BsFillBriefcaseFill } from 'react-icons/bs';
 import { GiSpellBook } from 'react-icons/gi';
-import {GoProject} from 'react-icons/go';
-import {BiWorld} from 'react-icons/bi';
-import {MdComputer} from 'react-icons/md';
+import { GoProject } from 'react-icons/go';
+import { BiWorld } from 'react-icons/bi';
+import { MdComputer } from 'react-icons/md';
 
 export default function CVForm() {
     const workExperienceRef = useRef();
     const EducationRef = useRef();
+    const LanguageRef = useRef();
+    const SkillRef = useRef();
+
+
 
     // reusable data points
     let emptyWorkExp = {
@@ -47,6 +51,7 @@ export default function CVForm() {
         proficiency: ''
     }
 
+    const [skill, setSkill] = useState('');
 
     // user records containing all CV information
     const [record, setRecord] = useState({
@@ -68,9 +73,29 @@ export default function CVForm() {
             github: "",
             stackoverflow: ""
         },
-        skills: [],
+        skills: ['html', 'css', 'reactjs'],
         languages: [emptyLang]
     });
+
+    const addSkill = (data) => {
+        if (data) {
+            let skills = record.skills;
+            skills.push(data);
+            setRecord({ ...record, skills })
+            setSkill('')
+        }
+    }
+
+    const removeSkill = (idx) => {
+        if (typeof idx === 'number') {
+            let skills = record.skills;
+            skills.splice(idx, 1)
+            console.log({ idx });
+            console.log({ skills })
+            setRecord({ ...record, skills })
+            setSkill('')
+        }
+    }
 
     const handleInputChange = (name) => (event) => {
         setRecord({
@@ -97,8 +122,16 @@ export default function CVForm() {
 
         window.scrollTo(0, workExperienceRef.current.offsetTop)
     }
+    const addLanguage = () => {
+        setRecord({
+            ...record,
+            languages: [...record.languages, emptyLang]
+        })
 
-    const addEducation = () =>{
+        window.scrollTo(0, LanguageRef.current.offsetTop)
+    }
+
+    const addEducation = () => {
         setRecord({
             ...record,
             education: [...record.education, emptyEducation]
@@ -106,48 +139,58 @@ export default function CVForm() {
 
         window.scrollTo(0, EducationRef.current.offsetTop)
     }
+    const VisitSkills = () => {
+        setRecord({
+            ...record,
+            skills: [...record.skills]
+        })
+
+        window.scrollTo(0, SkillRef.current.offsetTop)
+    }
+
+    const sectionList = [{
+        onClick: addWorkExperience,
+        text: "Add Work Experience",
+        icon: BsFillBriefcaseFill,
+    }, {
+        onClick: addEducation,
+        text: "Add Education",
+        icon: GiSpellBook,
+    }, {
+        onClick: () => console.log("add project"),
+        text: "Add Project",
+        icon: GoProject,
+    }, {
+        onClick: addLanguage,
+        text: "Add Language",
+        icon: BiWorld,
+    }, {
+        onClick: VisitSkills,
+        text: "Add Skills",
+        icon: MdComputer,
+    }]
 
     return (
         <Box minH={'100vh'} w={'100%'} my="4" >
             <Flex direction={{ base: 'column-reverse', xl: 'row' }} color="white">
-                <Box boxShadow="xs" mr="5px" p="6" rounded="md" w={{ base: '100%', xl: "25vw" }}  bg="#ffffff">
-                  <Text color="#181C27" fontWeight="bold" >Fill Section</Text>
+                <Box boxShadow="xs" mr="5px" p="6" rounded="md" w={{ base: '100%', xl: "25vw" }} bg="#ffffff">
+                    <Text color="#181C27" fontWeight="bold" >Fill Section</Text>
 
-                 {/* section selection container */}
-                  <Box p="0" m="30px 0px">
-                  <SimpleGrid minChildWidth="120px" spacing="10px">
+                    {/* section selection container */}
+                    <Box p="0" m="30px 0px">
+                        <SimpleGrid minChildWidth="120px" spacing="10px">
 
-                   { [{
-                        onClick: addWorkExperience,
-                        text: "Add Work Experience",
-                        icon: BsFillBriefcaseFill,
-                    },{
-                        onClick: addEducation,
-                        text: "Add Education",
-                        icon: GiSpellBook,
-                    }, {
-                        onClick: ()=> console.log("add project"),
-                        text: "Add Project",
-                        icon: GoProject,
-                    },{
-                        onClick: ()=> console.log("add language"),
-                        text: "Add Language",
-                        icon: BiWorld,
-                    }, {
-                        onClick: ()=> console.log("add skills"),
-                        text: "Add Skills",
-                        icon: MdComputer,
-                    }].map((val, index)=>
-                        <Flex key={val.text + index} as="button"_hover={{
-                            boxShadow: 'outline'
-                        }} onClick={val.onClick} cursor="pointer" justifyContent="center" flexDirection={"column"} alignItems="center" boxShadow="xs"  rounded="md" height="120px">
-                            <Icon as={val.icon} color="#000000" fontSize="40px"/>
-                            <Text color="#181C27" fontSize="13px" fontWeight="semibold" textAlign={"center"}>{val.text}</Text>
-                        </Flex>
-                     )
-                    }
-                   </SimpleGrid>
-                  </Box>
+                            {sectionList.map((val, index) =>
+                                <Flex key={val.text + index} as="button" _hover={{
+                                    boxShadow: 'outline'
+                                }} onClick={val.onClick} cursor="pointer" justifyContent="center" flexDirection={"column"} alignItems="center" boxShadow="xs" rounded="md" height="120px">
+                                    <Icon as={val.icon} color="#000000" fontSize="40px" />
+                                    <Text color="#181C27" fontSize="13px" fontWeight="semibold" textAlign={"center"}>{val.text}</Text>
+                                </Flex>
+                            )
+                            }
+                        </SimpleGrid>
+                    </Box>
                 </Box>
 
                 <Box display="flex" flexDirection="column" justifyContent="space-between" align="stretch" flex="1" minH="80vh" p="4">
@@ -245,6 +288,83 @@ export default function CVForm() {
                         </VStack>
                     ))
                     }
+
+                    <VStack mt={6} align="start">
+                        <Text color="#181C27" fontWeight="bold">Projects</Text>
+                        <Divider />
+                    </VStack>
+                    {record.projects && record.projects.map((project, idx) => (
+
+                        <VStack key={idx} spacing="24px" mt={"40px"} align="stretch">
+
+                            <Stack direction={["column", "row"]} spacing="24px">
+                                <FormInput placeholder="Title" value={project.title} onChange={handleFieldChange('projects', 'title', idx)} />
+                                <FormInput placeholder="Project URL" value={project.url} onChange={handleFieldChange('projects', 'url', idx)} />
+
+                            </Stack>
+                            <Stack direction={["column", "row"]} spacing="24px">
+                                <FormInput placeholder="Start date" type="date" onChange={handleFieldChange('projects', 'start_date', idx)} value={project.start_date} />
+
+                                <FormInput placeholder="End date" type="date" onChange={handleFieldChange('projects', 'end_date', idx)} value={project.end_date} />
+                            </Stack>
+
+                            <Stack direction={["column", "row"]} spacing="24px">
+                                <Textarea focusBorderColor="#181C27" placeholder="Description" onChange={handleFieldChange('projects', 'description', idx)} value={project.description} />
+                            </Stack>
+
+                        </VStack>
+                    ))
+                    }
+
+                    <VStack ref={SkillRef} mt={6} align="start">
+                        <Text color="#181C27" fontWeight="bold" >Skills</Text>
+                        <Divider />
+                    </VStack>
+                    <HStack spacing="24px" mt={"40px"}>
+
+                        {record.skills.length > 0 ? record.skills.map((skill, idx) => (
+
+                            <Tag
+                                size={'lg'}
+                                key={idx}
+                                borderRadius="full"
+                                variant="solid"
+                                bg="#181C27"
+                                color="white"
+                            >
+                                <TagLabel>{skill}</TagLabel>
+                                <TagCloseButton onClick={() => removeSkill(idx)} />
+                            </Tag>
+
+                        )) : <Text>No skills available</Text>
+                        }
+                    </HStack>
+                    <HStack spacing="24px" mt={"40px"} >
+                        <Stack direction={["column", "row"]} spacing="24px" w="100%">
+                            <FormInput placeholder="Enter a skill" value={skill} onChange={(e) => setSkill(e.target.value)} />
+                            <Button w="100%" _hover={{ bg: "#181C27" }} _active={{ bg: "#181C27" }} color="#fff" onClick={() => addSkill(skill)} bg="#181C27"> Add a new skill</Button>
+                        </Stack>
+                    </HStack>
+
+                    <VStack ref={LanguageRef} mt={6} align="start">
+                        <Text color="#181C27" fontWeight="bold" >Languages</Text>
+                        <Divider />
+                    </VStack>
+
+                    {record.languages.length > 0 ? record.languages.map((lan, idx) => (
+                        <HStack key={idx} spacing="24px" mt={"40px"}>
+                            <Stack direction={["column", "row"]} spacing="24px" w="100%">
+                                <FormInput placeholder="Enter a Language" value={lan.name} onChange={handleFieldChange('languages', 'name', idx)} />
+
+                                <FormInput placeholder="Enter a Language Proficiency" value={lan.proficiency} onChange={handleFieldChange('languages', 'proficiency', idx)} />
+
+                            </Stack>
+
+                        </HStack>
+                    )) : <Text>No languages available</Text>
+                    }
+                    {/* <Button w="100%" _hover={{ bg: "#181C27" }} _active={{ bg: "#181C27" }} color="#fff" onClick={() => addLanguage()} bg="#181C27"> Add a new skill</Button> */}
+
                 </Box>
             </Flex>
 
