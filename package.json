@@ -11,7 +11,8 @@
     "test:noWatch": "jest --watch=false",
     "test:coverage": "jest --coverage --watchAll=false",
     "lint:fix": "next lint --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged --config lint-staged.config.js"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.15",
