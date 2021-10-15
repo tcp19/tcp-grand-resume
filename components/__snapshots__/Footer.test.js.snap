@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render properly 1`] = `
+<div>
+  <div
+    class="css-1sp5dw5"
+  >
+    <div
+      class="chakra-stack chakra-container css-1pyonn0"
+    >
+      <div
+        class="chakra-stack css-111rh5x"
+      >
+        <p
+          class="chakra-text css-0"
+        >
+          Build with ❤️ from Nigeria. Teencode Africa 
+        </p>
+      </div>
+      <p
+        class="chakra-text css-0"
+      >
+        © 
+        2021
+        . All rights reserved
+      </p>
+    </div>
+  </div>
+</div>
+`;
