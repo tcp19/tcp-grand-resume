@@ -1,0 +1,246 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render the MobileNav component properly 1`] = `
+<div>
+  <div
+    class="chakra-stack css-tm2a1"
+  >
+    <div
+      class="chakra-stack css-17kdbol"
+    >
+      <a
+        class="chakra-link css-q4j97j"
+        href="#"
+      >
+        <p
+          class="chakra-text css-y33gq0"
+        >
+          Templates
+        </p>
+        <svg
+          class="chakra-icon chakra-icon css-1bfsybq"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            fill="currentColor"
+          />
+        </svg>
+      </a>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-khmogt"
+        >
+          <a
+            class="chakra-link css-o5g2qp"
+            href="#"
+          >
+            Danfo
+          </a>
+          <a
+            class="chakra-link css-o5g2qp"
+            href="#"
+          >
+            Google 
+          </a>
+          <a
+            class="chakra-link css-o5g2qp"
+            href="#"
+          >
+            Uber
+          </a>
+        </div>
+      </div>
+    </div>
+    <div
+      class="chakra-stack css-17kdbol"
+    >
+      <a
+        class="chakra-link css-q4j97j"
+        href="#"
+      >
+        <p
+          class="chakra-text css-y33gq0"
+        >
+          Contribute a Template
+        </p>
+      </a>
+      <div
+        class="chakra-collapse"
+        style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+      >
+        <div
+          class="chakra-stack css-khmogt"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header should render the MobileNavItem component properly 1`] = `
+<div>
+  <div
+    class="chakra-stack css-17kdbol"
+  >
+    <a
+      class="chakra-link css-q4j97j"
+      href="#"
+    >
+      <p
+        class="chakra-text css-y33gq0"
+      >
+        Contribute a Template
+      </p>
+    </a>
+    <div
+      class="chakra-collapse"
+      style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+    >
+      <div
+        class="chakra-stack css-khmogt"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Header should render the component properly 1`] = `
+<div>
+  <div
+    class="css-0"
+  >
+    <div
+      class="css-8lthux"
+    >
+      <div
+        class="css-1fsntt9"
+      >
+        <button
+          aria-label="Toggle Navigation"
+          class="chakra-button css-198bfjk"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            class="chakra-icon css-w31a5m"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M 3 5 A 1.0001 1.0001 0 1 0 3 7 L 21 7 A 1.0001 1.0001 0 1 0 21 5 L 3 5 z M 3 11 A 1.0001 1.0001 0 1 0 3 13 L 21 13 A 1.0001 1.0001 0 1 0 21 11 L 3 11 z M 3 17 A 1.0001 1.0001 0 1 0 3 19 L 21 19 A 1.0001 1.0001 0 1 0 21 17 L 3 17 z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="css-1r8knn8"
+      >
+        <p
+          class="chakra-text u-stroke css-1i519ap"
+        >
+          Grand resume
+        </p>
+      </div>
+      <div
+        class="chakra-stack css-18njwrs"
+      >
+        <button
+          class="chakra-button css-149nlxd"
+          href="#"
+          type="button"
+        >
+          Get started
+        </button>
+      </div>
+    </div>
+    <div
+      class="chakra-collapse"
+      style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+    >
+      <div
+        class="chakra-stack css-tm2a1"
+      >
+        <div
+          class="chakra-stack css-17kdbol"
+        >
+          <a
+            class="chakra-link css-q4j97j"
+            href="#"
+          >
+            <p
+              class="chakra-text css-y33gq0"
+            >
+              Templates
+            </p>
+            <svg
+              class="chakra-icon chakra-icon css-1bfsybq"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                fill="currentColor"
+              />
+            </svg>
+          </a>
+          <div
+            class="chakra-collapse"
+            style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+          >
+            <div
+              class="chakra-stack css-khmogt"
+            >
+              <a
+                class="chakra-link css-o5g2qp"
+                href="#"
+              >
+                Danfo
+              </a>
+              <a
+                class="chakra-link css-o5g2qp"
+                href="#"
+              >
+                Google 
+              </a>
+              <a
+                class="chakra-link css-o5g2qp"
+                href="#"
+              >
+                Uber
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="chakra-stack css-17kdbol"
+        >
+          <a
+            class="chakra-link css-q4j97j"
+            href="#"
+          >
+            <p
+              class="chakra-text css-y33gq0"
+            >
+              Contribute a Template
+            </p>
+          </a>
+          <div
+            class="chakra-collapse"
+            style="overflow: hidden; display: none; opacity: 0; height: 0px;"
+          >
+            <div
+              class="chakra-stack css-khmogt"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
