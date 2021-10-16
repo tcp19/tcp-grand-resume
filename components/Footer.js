@@ -29,7 +29,7 @@ import {
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}>
           <Stack direction={'row'} spacing={6}>
-           <Text>Build with ❤️ from Nigeria.  Teencode Africa </Text>
+           <Text>Made with ❤️ from Nigeria.  Teencode Africa </Text>
           </Stack>
           <Text>© {new Date().getFullYear()}. All rights reserved</Text>
         </Container>
