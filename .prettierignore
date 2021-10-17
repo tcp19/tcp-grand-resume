@@ -1,0 +1,14 @@
+build
+dist
+node_modules*
+dist*
+*.svg
+*.ico
+.gitignore
+*.log
+*.lock
+.next*
+coverage*
+.circleci*
+.husky*
+.eslintignore
