@@ -28,6 +28,7 @@ export default function CVForm() {
     const workExperienceRef = useRef();
     const EducationRef = useRef();
     const LanguageRef = useRef();
+    const ProjectsRef = useRef();
     const SkillRef = useRef();
 
     // reusable data points
@@ -143,7 +144,14 @@ export default function CVForm() {
 
         window.scrollTo(0, LanguageRef.current.offsetTop);
     };
+    const addProject = () => {
+        setRecord({
+            ...record,
+            projects: [...record.projects, emptyProject],
+        });
 
+        window.scrollTo(0, ProjectsRef.current.offsetTop);
+    };
     const addEducation = () => {
         setRecord({
             ...record,
@@ -173,7 +181,7 @@ export default function CVForm() {
             icon: GiSpellBook,
         },
         {
-            onClick: () => console.log("add project"),
+            onClick: addProject,
             text: "Add Project",
             icon: GoProject,
         },
@@ -509,7 +517,7 @@ export default function CVForm() {
                             </VStack>
                         ))}
 
-                    <VStack mt={6} align="start">
+                    <VStack ref={ProjectsRef} mt={6} align="start">
                         <Text color="#181C27" fontWeight="bold">
                             Projects
                         </Text>
