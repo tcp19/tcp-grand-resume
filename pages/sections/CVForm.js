@@ -408,6 +408,7 @@ export default function CVForm() {
                                 >
                                     <Textarea
                                         focusBorderColor="#181C27"
+                                        color="#181C27"
                                         placeholder="Job Summary"
                                         onChange={handleFieldChange(
                                             "workExperiences",
@@ -497,6 +498,7 @@ export default function CVForm() {
                                 >
                                     <Textarea
                                         focusBorderColor="#181C27"
+                                        color="#181C27"
                                         placeholder="Summary"
                                         onChange={handleFieldChange(
                                             "education",
@@ -579,6 +581,7 @@ export default function CVForm() {
                                 >
                                     <Textarea
                                         focusBorderColor="#181C27"
+                                        color="#181C27"
                                         placeholder="Description"
                                         onChange={handleFieldChange(
                                             "projects",
