@@ -18,6 +18,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from "@chakra-ui/icons";
+import RouteLink from "next/link"
 
 export default function Header() {
     const { isOpen, onToggle } = useDisclosure();
@@ -78,19 +79,21 @@ export default function Header() {
                     direction={"row"}
                     spacing={6}
                 >
-                    <Button
-                        display={{ base: "none", md: "inline-flex" }}
-                        fontSize={"sm"}
-                        fontWeight={600}
-                        color={"white"}
-                        bg={"#181C27"}
-                        href={"#"}
-                        _hover={{
-                            bg: "#181C27",
-                        }}
-                    >
-                        Get started
-                    </Button>
+                    <RouteLink href="/build-resume">
+                        <Button
+                            display={{ base: "none", md: "inline-flex" }}
+                            fontSize={"sm"}
+                            fontWeight={600}
+                            color={"white"}
+                            bg={"#181C27"}
+                            href={"#"}
+                            _hover={{
+                                bg: "#181C27",
+                            }}
+                        >
+                            Get started
+                        </Button>
+                    </RouteLink>
                 </Stack>
             </Flex>
 
