@@ -22,7 +22,7 @@ import { BsFillBriefcaseFill } from "react-icons/bs";
 import { GiSpellBook } from "react-icons/gi";
 import { GoProject } from "react-icons/go";
 import { BiWorld } from "react-icons/bi";
-import { MdComputer, MdDeleteOutline } from "react-icons/md";
+import { MdComputer } from "react-icons/md";
 
 export default function CVForm() {
     const workExperienceRef = useRef();
@@ -127,60 +127,31 @@ export default function CVForm() {
         });
     };
 
-    const manageWorkExperience = (action, id = null) => {
-        if (action === "add") {
-            setRecord({
-                ...record,
-                workExperiences: [...record.workExperiences, emptyWorkExp],
-            });
+    const addWorkExperience = () => {
+        setRecord({
+            ...record,
+            workExperiences: [...record.workExperiences, emptyWorkExp],
+        });
 
-            window.scrollTo(0, workExperienceRef.current.offsetTop);
-        } else {
-            setRecord({
-                ...record,
-                workExperiences: record.workExperiences.filter(
-                    (experience, idx) => idx !== id
-                ),
-            });
-        }
+        window.scrollTo(0, workExperienceRef.current.offsetTop);
+    };
+    const addLanguage = () => {
+        setRecord({
+            ...record,
+            languages: [...record.languages, emptyLang],
+        });
+
+        window.scrollTo(0, LanguageRef.current.offsetTop);
     };
 
-    const manageLanguage = (action, id = null) => {
-        if (action === "add") {
-            setRecord({
-                ...record,
-                languages: [...record.languages, emptyLang],
-            });
+    const addEducation = () => {
+        setRecord({
+            ...record,
+            education: [...record.education, emptyEducation],
+        });
 
-            window.scrollTo(0, LanguageRef.current.offsetTop);
-        } else {
-            setRecord({
-                ...record,
-                languages: record.languages.filter(
-                    (language, idx) => idx !== id
-                ),
-            });
-        }
+        window.scrollTo(0, EducationRef.current.offsetTop);
     };
-
-    const manageEducation = (action, id = null) => {
-        if (action === "add") {
-            setRecord({
-                ...record,
-                education: [...record.education, emptyEducation],
-            });
-
-            window.scrollTo(0, EducationRef.current.offsetTop);
-        } else {
-            setRecord({
-                ...record,
-                education: record.education.filter(
-                    (education, idx) => idx !== id
-                ),
-            });
-        }
-    };
-
     const VisitSkills = () => {
         setRecord({
             ...record,
@@ -192,12 +163,12 @@ export default function CVForm() {
 
     const sectionList = [
         {
-            onClick: () => manageWorkExperience("add"),
+            onClick: addWorkExperience,
             text: "Add Work Experience",
             icon: BsFillBriefcaseFill,
         },
         {
-            onClick: () => manageEducation("add"),
+            onClick: addEducation,
             text: "Add Education",
             icon: GiSpellBook,
         },
@@ -207,7 +178,7 @@ export default function CVForm() {
             icon: GoProject,
         },
         {
-            onClick: () => manageLanguage("add"),
+            onClick: addLanguage,
             text: "Add Language",
             icon: BiWorld,
         },
@@ -364,21 +335,6 @@ export default function CVForm() {
                                 align="stretch"
                             >
                                 <Stack
-                                    direction={["row"]}
-                                    spacing="24px"
-                                    justifyContent="end"
-                                >
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageWorkExperience("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
-                                </Stack>
-                                <Stack
                                     direction={["column", "row"]}
                                     spacing="24px"
                                 >
@@ -485,21 +441,6 @@ export default function CVForm() {
                                 mt={"40px"}
                                 align="stretch"
                             >
-                                <Stack
-                                    direction={["row"]}
-                                    spacing="24px"
-                                    justifyContent="end"
-                                >
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageEducation("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
-                                </Stack>
                                 <Stack
                                     direction={["column", "row"]}
                                     spacing="24px"
@@ -735,17 +676,6 @@ export default function CVForm() {
                                             "proficiency",
                                             idx
                                         )}
-                                    />
-                                </Stack>
-                                <Stack>
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageLanguage("remove", idx)
-                                        }
-                                        cursor="pointer"
                                     />
                                 </Stack>
                             </HStack>
