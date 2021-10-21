@@ -18,7 +18,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from "@chakra-ui/icons";
-import RouteLink from "next/link"
+import RouteLink from "next/link";
 
 export default function Header() {
     const { isOpen, onToggle } = useDisclosure();
