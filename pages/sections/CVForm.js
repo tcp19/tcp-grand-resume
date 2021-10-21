@@ -363,21 +363,28 @@ export default function CVForm() {
                                 mt={"40px"}
                                 align="stretch"
                             >
-                                <Stack
-                                    direction={["row"]}
-                                    spacing="24px"
-                                    justifyContent="end"
-                                >
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageWorkExperience("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
-                                </Stack>
+                                {idx === 0 ? (
+                                    ""
+                                ) : (
+                                    <Stack
+                                        direction={["row"]}
+                                        spacing="24px"
+                                        justifyContent="end"
+                                    >
+                                        <Icon
+                                            as={MdDeleteOutline}
+                                            color="#000000"
+                                            fontSize="22px"
+                                            onClick={() =>
+                                                manageWorkExperience(
+                                                    "remove",
+                                                    idx
+                                                )
+                                            }
+                                            cursor="pointer"
+                                        />
+                                    </Stack>
+                                )}
                                 <Stack
                                     direction={["column", "row"]}
                                     spacing="24px"
@@ -485,21 +492,25 @@ export default function CVForm() {
                                 mt={"40px"}
                                 align="stretch"
                             >
-                                <Stack
-                                    direction={["row"]}
-                                    spacing="24px"
-                                    justifyContent="end"
-                                >
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageEducation("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
-                                </Stack>
+                                {idx === 0 ? (
+                                    ""
+                                ) : (
+                                    <Stack
+                                        direction={["row"]}
+                                        spacing="24px"
+                                        justifyContent="end"
+                                    >
+                                        <Icon
+                                            as={MdDeleteOutline}
+                                            color="#000000"
+                                            fontSize="22px"
+                                            onClick={() =>
+                                                manageEducation("remove", idx)
+                                            }
+                                            cursor="pointer"
+                                        />
+                                    </Stack>
+                                )}
                                 <Stack
                                     direction={["column", "row"]}
                                     spacing="24px"
@@ -737,17 +748,21 @@ export default function CVForm() {
                                         )}
                                     />
                                 </Stack>
-                                <Stack>
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageLanguage("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
-                                </Stack>
+                                {idx === 0 ? (
+                                    ""
+                                ) : (
+                                    <Stack>
+                                        <Icon
+                                            as={MdDeleteOutline}
+                                            color="#000000"
+                                            fontSize="22px"
+                                            onClick={() =>
+                                                manageLanguage("remove", idx)
+                                            }
+                                            cursor="pointer"
+                                        />
+                                    </Stack>
+                                )}
                             </HStack>
                         ))
                     ) : (
