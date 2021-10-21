@@ -748,25 +748,22 @@ export default function CVForm() {
                                         )}
                                     />
                                 </Stack>
-                                {idx === 0 ? (
-                                    ""
-                                ) : (
-                                    <Stack>
-                                        <Icon
-                                            as={MdDeleteOutline}
-                                            color="#000000"
-                                            fontSize="22px"
-                                            onClick={() =>
-                                                manageLanguage("remove", idx)
-                                            }
-                                            cursor="pointer"
-                                        />
-                                    </Stack>
-                                )}
+
+                                <Stack>
+                                    <Icon
+                                        as={MdDeleteOutline}
+                                        color="#000000"
+                                        fontSize="22px"
+                                        onClick={() =>
+                                            manageLanguage("remove", idx)
+                                        }
+                                        cursor="pointer"
+                                    />
+                                </Stack>
                             </HStack>
                         ))
                     ) : (
-                        <Text>No languages available</Text>
+                        <Text color="#000000">No languages available</Text>
                     )}
                     {/* <Button w="100%" _hover={{ bg: "#181C27" }} _active={{ bg: "#181C27" }} color="#fff" onClick={() => addLanguage()} bg="#181C27"> Add a new skill</Button> */}
                 </Box>
