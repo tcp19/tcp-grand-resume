@@ -13,6 +13,15 @@
       "contributions": [
         "design"
       ]
+    },
+    {
+      "login": "Mr-emeka",
+      "name": "Ukpai Chukwuemeka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30534680?v=4",
+      "profile": "https://www.linkedin.com/in/ukpai-emeka/",
+      "contributions": [
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
