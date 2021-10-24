@@ -14,6 +14,30 @@
         "design"
       ]
     },
+    {"login": "oluwatobiloba2000",
+      "name": "Anani oluwatobiloba",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49096400?v=4",
+      "profile": "https://www.ananitobi.com",
+      "contributions": [
+        "design"
+      ]
+    },
+    {"login": "Mr-emeka",
+      "name": "Ukpai Chukwuemeka",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30534680?v=4",
+      "profile": "https://www.linkedin.com/in/ukpai-emeka/",
+      "contributions": [
+        "test"
+        ]
+     },
+     {"login": "Mohamilr",
+      "name": "Mohammed Ibrahim",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45388249?v=4",
+      "profile": "https://github.com/Mohamilr",
+      "contributions": [
+        "maintenance"
+        ]
+     },
     {
       "login": "Marigameo",
       "name": "Mari Gameo",
@@ -21,8 +45,8 @@
       "profile": "https://mariappan.netlify.app/",
       "contributions": [
         "code"
-      ]
-    }
+        ]
+      }
   ],
   "contributorsPerLine": 7,
   "projectName": "tcp-grand-resume",
