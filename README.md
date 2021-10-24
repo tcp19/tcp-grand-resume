@@ -1,4 +1,7 @@
 ## Grand resume by TCA19
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/317ecc2a-3389-4c2d-979e-6cd7c4227d47/deploy-status)](https://grand-resume.netlify.app/build-resume)
 [![CircleCI](https://circleci.com/gh/tcp19/tcp-grand-resume/tree/develop.svg?style=svg)](https://circleci.com/gh/tcp19/tcp-grand-resume/tree/develop)
@@ -14,3 +17,23 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://adebayo.netlify.app"><img src="https://avatars.githubusercontent.com/u/46798106?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Adebayo Ilerioluwa </b></sub></a><br /><a href="#design-adebayoileri" title="Design">🎨</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
