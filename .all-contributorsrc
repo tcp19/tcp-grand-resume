@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "adebayoileri",
+      "name": "Adebayo Ilerioluwa ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46798106?v=4",
+      "profile": "https://adebayo.netlify.app",
+      "contributions": [
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "tcp-grand-resume",
+  "projectOwner": "tcp19",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
