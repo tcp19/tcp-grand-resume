@@ -29,6 +29,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://adebayo.netlify.app"><img src="https://avatars.githubusercontent.com/u/46798106?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Adebayo Ilerioluwa </b></sub></a><br /><a href="#design-adebayoileri" title="Design">🎨</a></td>
     <td align="center"><a href="https://github.com/Mohamilr"><img src="https://avatars.githubusercontent.com/u/45388249?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohammed Ibrahim</b></sub></a><br /><a href="#maintenance-Mohamilr" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/ukpai-emeka/"><img src="https://avatars.githubusercontent.com/u/30534680?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ukpai Chukwuemeka</b></sub></a><br /><a href="https://github.com/tcp19/tcp-grand-resume/commits?author=Mr-emeka" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://www.ananitobi.com"><img src="https://avatars.githubusercontent.com/u/49096400?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Anani oluwatobiloba</b></sub></a><br /><a href="#design-oluwatobiloba2000" title="Design">🎨</a></td>
   </tr>
 </table>
 
