@@ -1,57 +1,60 @@
 {
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "contributors": [
-    {
-      "login": "adebayoileri",
-      "name": "Adebayo Ilerioluwa ",
-      "avatar_url": "https://avatars.githubusercontent.com/u/46798106?v=4",
-      "profile": "https://adebayo.netlify.app",
-      "contributions": [
-        "design"
-      ]
-    },
-    {"login": "oluwatobiloba2000",
-      "name": "Anani oluwatobiloba",
-      "avatar_url": "https://avatars.githubusercontent.com/u/49096400?v=4",
-      "profile": "https://www.ananitobi.com",
-      "contributions": [
-        "design"
-      ]
-    },
-    {"login": "Mr-emeka",
-      "name": "Ukpai Chukwuemeka",
-      "avatar_url": "https://avatars.githubusercontent.com/u/30534680?v=4",
-      "profile": "https://www.linkedin.com/in/ukpai-emeka/",
-      "contributions": [
-        "test"
-        ]
-     },
-     {"login": "Mohamilr",
-      "name": "Mohammed Ibrahim",
-      "avatar_url": "https://avatars.githubusercontent.com/u/45388249?v=4",
-      "profile": "https://github.com/Mohamilr",
-      "contributions": [
-        "maintenance"
-        ]
-     },
-    {
-      "login": "Marigameo",
-      "name": "Mari Gameo",
-      "avatar_url": "https://avatars.githubusercontent.com/u/29794747?v=4",
-      "profile": "https://mariappan.netlify.app/",
-      "contributions": [
-        "code"
-        ]
-      }
-  ],
-  "contributorsPerLine": 7,
-  "projectName": "tcp-grand-resume",
-  "projectOwner": "tcp19",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "skipCi": true
+    "files": [
+        "README.md"
+    ],
+    "imageSize": 100,
+    "commit": false,
+    "contributors": [
+        {
+            "login": "adebayoileri",
+            "name": "Adebayo Ilerioluwa ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/46798106?v=4",
+            "profile": "https://adebayo.netlify.app",
+            "contributions": [
+                "design"
+            ]
+        },
+        {
+            "login": "oluwatobiloba2000",
+            "name": "Anani oluwatobiloba",
+            "avatar_url": "https://avatars.githubusercontent.com/u/49096400?v=4",
+            "profile": "https://www.ananitobi.com",
+            "contributions": [
+                "design"
+            ]
+        },
+        {
+            "login": "Mr-emeka",
+            "name": "Ukpai Chukwuemeka",
+            "avatar_url": "https://avatars.githubusercontent.com/u/30534680?v=4",
+            "profile": "https://www.linkedin.com/in/ukpai-emeka/",
+            "contributions": [
+                "test"
+            ]
+        },
+        {
+            "login": "Mohamilr",
+            "name": "Mohammed Ibrahim",
+            "avatar_url": "https://avatars.githubusercontent.com/u/45388249?v=4",
+            "profile": "https://github.com/Mohamilr",
+            "contributions": [
+                "maintenance"
+            ]
+        },
+        {
+            "login": "Marigameo",
+            "name": "Mari Gameo",
+            "avatar_url": "https://avatars.githubusercontent.com/u/29794747?v=4",
+            "profile": "https://mariappan.netlify.app/",
+            "contributions": [
+                "code"
+            ]
+        }
+    ],
+    "contributorsPerLine": 7,
+    "projectName": "tcp-grand-resume",
+    "projectOwner": "tcp19",
+    "repoType": "github",
+    "repoHost": "https://github.com",
+    "skipCi": true
 }
