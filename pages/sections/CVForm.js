@@ -37,7 +37,6 @@ export default function CVForm() {
     const SkillRef = useRef();
     const ProjectRef = useRef();
 
-
     // user globalRecords containing all CV information
     const { globalRecord, setGlobalRecord } = useCVContext();
     const [skill, setSkill] = useState("");
@@ -87,7 +86,7 @@ export default function CVForm() {
 
             setGlobalRecord({
                 ...globalRecord,
-                projects
+                projects,
             });
 
             window.scrollTo(0, ProjectRef.current.offsetTop);
@@ -107,10 +106,7 @@ export default function CVForm() {
 
             setGlobalRecord({
                 ...globalRecord,
-                workExperiences: [
-                    ...globalRecord.workExperiences,
-                    newWorkExp,
-                ],
+                workExperiences: [...globalRecord.workExperiences, newWorkExp],
             });
 
             window.scrollTo(0, workExperienceRef.current.offsetTop);
@@ -457,7 +453,15 @@ export default function CVForm() {
                             </VStack>
                         ))}
 
-                        <Text my="4" opacity="0.6" textColor="#181C27" fontSize="md"> NB: Use newlines for bullet points. </Text>
+                    <Text
+                        my="4"
+                        opacity="0.6"
+                        textColor="#181C27"
+                        fontSize="md"
+                    >
+                        {" "}
+                        NB: Use newlines for bullet points.{" "}
+                    </Text>
 
                     <VStack mt={6} ref={EducationRef} align="start">
                         <Text color="#181C27" fontWeight="bold">
@@ -563,7 +567,7 @@ export default function CVForm() {
                             </VStack>
                         ))}
 
-                    <VStack mt={6} ref={ProjectRef}  align="start">
+                    <VStack mt={6} ref={ProjectRef} align="start">
                         <Text color="#181C27" fontWeight="bold">
                             Projects
                         </Text>
@@ -571,7 +575,6 @@ export default function CVForm() {
                     </VStack>
                     {globalRecord.projects.length > 0 &&
                         globalRecord.projects.map((project, idx) => (
-
                             <VStack
                                 key={idx}
                                 spacing="24px"
@@ -579,24 +582,24 @@ export default function CVForm() {
                                 align="stretch"
                             >
                                 {idx === 0 ? (
-                                ""
-                            ) : (
-                                <Stack
-                                    direction={["row"]}
-                                    spacing="24px"
-                                    justifyContent="end"
-                                >
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageProject("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
-                                </Stack>
-                            )}
+                                    ""
+                                ) : (
+                                    <Stack
+                                        direction={["row"]}
+                                        spacing="24px"
+                                        justifyContent="end"
+                                    >
+                                        <Icon
+                                            as={MdDeleteOutline}
+                                            color="#000000"
+                                            fontSize="22px"
+                                            onClick={() =>
+                                                manageProject("remove", idx)
+                                            }
+                                            cursor="pointer"
+                                        />
+                                    </Stack>
+                                )}
                                 <Stack
                                     direction={["column", "row"]}
                                     spacing="24px"
@@ -605,7 +608,6 @@ export default function CVForm() {
                                     <FormInput
                                         placeholder="Title"
                                         value={project.title}
-
                                         onChange={handleFieldChange(
                                             "projects",
                                             "title",

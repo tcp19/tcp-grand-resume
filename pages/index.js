@@ -1,12 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import {
-    Container,
-    Heading,
-    Stack,
-    Text,
-    Button,
-} from "@chakra-ui/react";
+import { Container, Heading, Stack, Text, Button } from "@chakra-ui/react";
 import Testimonials from "../components/Testimonal";
 
 export default function BulildResume() {

@@ -1,6 +1,19 @@
 import { DownloadIcon, ViewIcon } from "@chakra-ui/icons";
-import { Box, Flex, Button, Modal, ModalBody, ModalOverlay, ModalCloseButton, ModalContent, ModalHeader, ModalFooter, useDisclosure, useToast } from "@chakra-ui/react";
-import Image from 'next/image';
+import {
+    Box,
+    Flex,
+    Button,
+    Modal,
+    ModalBody,
+    ModalOverlay,
+    ModalCloseButton,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    useDisclosure,
+    useToast,
+} from "@chakra-ui/react";
+import Image from "next/image";
 import React, { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import templates from "../../templates";
@@ -8,14 +21,14 @@ import { printAsPdf } from "../../utils/printAsPdf";
 
 export default function PreviewCV() {
     const { globalRecord } = useCVContext();
-    const { isOpen, onOpen, onClose } = useDisclosure()
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     const toast = useToast();
 
-    const initialRef = React.useRef()
-    const finalRef = React.useRef()
+    const initialRef = React.useRef();
+    const finalRef = React.useRef();
 
-    const [template, setTemplate] = useState('default')
+    const [template, setTemplate] = useState("default");
 
     const { firstName, lastName } = globalRecord;
 
@@ -26,18 +39,19 @@ export default function PreviewCV() {
     };
 
     const selectTemplate = (type) => {
-        onClose()
+        onClose();
         setTemplate(type);
         toast({
             title: "Changed template successfully",
             status: "success",
-          duration: 9000,
-          position: "top",
-          isClosable: true,
-        })
-    }
+            duration: 9000,
+            position: "top",
+            isClosable: true,
+        });
+    };
 
-    const CVTemplate = templates?.[template]?.component || templates?.['default']?.component;
+    const CVTemplate =
+        templates?.[template]?.component || templates?.["default"]?.component;
 
     return (
         <>
@@ -47,26 +61,36 @@ export default function PreviewCV() {
                 isOpen={isOpen}
                 size="full"
                 onClose={onClose}
-
             >
-                <ModalOverlay bg={"grand.black"}
-                    color={"#ffff"} />
-                <ModalContent bg={"grand.black"}
-                    color={"#ffff"}>
+                <ModalOverlay bg={"grand.black"} color={"#ffff"} />
+                <ModalContent bg={"grand.black"} color={"#ffff"}>
                     <ModalHeader>Choose a Template</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody p={6}>
-                        <Flex flexWrap="wrap" >
+                        <Flex flexWrap="wrap">
                             {Object.keys(templates).map((template, idx) => (
-                                <Box mx="10" onClick={() => selectTemplate(template)} cursor="pointer" key={idx}>
-                                    <Image src={templates[template].image} width="200" height="250" alt={`template image ${idx}`} />
+                                <Box
+                                    mx="10"
+                                    onClick={() => selectTemplate(template)}
+                                    cursor="pointer"
+                                    key={idx}
+                                >
+                                    <Image
+                                        src={templates[template].image}
+                                        width="200"
+                                        height="250"
+                                        alt={`template image ${idx}`}
+                                    />
                                 </Box>
-                            ))
-
-                            }
-                             <Box mx="10" height="200" bg={"#ffff"} width="200" onClick={() => {}} cursor="pointer" >
-
-                                </Box>
+                            ))}
+                            <Box
+                                mx="10"
+                                height="200"
+                                bg={"#ffff"}
+                                width="200"
+                                onClick={() => {}}
+                                cursor="pointer"
+                            ></Box>
                         </Flex>
                     </ModalBody>
 
@@ -74,7 +98,13 @@ export default function PreviewCV() {
                         <Button colorScheme="brand.black" mr={3}>
                             Save
                         </Button>
-                        <Button bg="#ffff" textColor="#181C27" onClick={onClose}>Cancel</Button>
+                        <Button
+                            bg="#ffff"
+                            textColor="#181C27"
+                            onClick={onClose}
+                        >
+                            Cancel
+                        </Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>

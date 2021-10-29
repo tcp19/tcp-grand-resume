@@ -27,7 +27,6 @@ export default function BulildResume() {
                         >
                             Preview
                         </Tab>
-
                     </TabList>
 
                     <TabPanels>
@@ -37,7 +36,6 @@ export default function BulildResume() {
                         <TabPanel p="0">
                             <PreviewCV />
                         </TabPanel>
-
                     </TabPanels>
                 </Tabs>
             </Container>
