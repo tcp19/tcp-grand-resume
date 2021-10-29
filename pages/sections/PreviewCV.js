@@ -36,6 +36,16 @@ export default function PreviewCV() {
         const pageElement = document.querySelector(`#resume`);
 
         printAsPdf({ pageElement, firstName, lastName });
+
+        setTimeout(() => {
+            toast({
+            title: "Resume Downloaded Successfully 🎉🎉",
+            status: "success",
+            duration: 3000,
+            position: "top",
+            isClosable: true,
+        })
+         })
     };
 
     const selectTemplate = (type) => {

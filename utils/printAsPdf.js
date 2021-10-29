@@ -52,6 +52,5 @@ export const printAsPdf = ({ pageElement, firstName, lastName }) => {
             heightLeft -= pageHeight;
         }
         doc.save(`${firstName}-${lastName}-resume.pdf`);
-        //   feedback("Your CV is Ready!");
     });
 };
