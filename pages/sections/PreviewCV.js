@@ -39,13 +39,13 @@ export default function PreviewCV() {
 
         setTimeout(() => {
             toast({
-            title: "Resume Downloaded Successfully 🎉🎉",
-            status: "success",
-            duration: 3000,
-            position: "top",
-            isClosable: true,
-        })
-         })
+                title: "Resume Downloaded Successfully 🎉🎉",
+                status: "success",
+                duration: 3000,
+                position: "top",
+                isClosable: true,
+            });
+        });
     };
 
     const selectTemplate = (type) => {
