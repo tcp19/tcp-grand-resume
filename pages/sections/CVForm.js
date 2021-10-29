@@ -17,12 +17,18 @@ import {
 } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import FormInput from "../../components/FormInput";
-import { formatDate } from "../../utils/formatDate";
 import { BsFillBriefcaseFill } from "react-icons/bs";
 import { GiSpellBook } from "react-icons/gi";
 import { GoProject } from "react-icons/go";
 import { BiWorld } from "react-icons/bi";
 import { MdComputer, MdDeleteOutline } from "react-icons/md";
+import { useCVContext } from "../../context/CVContext";
+import {
+    emptyWorkExp,
+    emptyEducation,
+    emptyLang,
+    emptyProject,
+} from "../../utils/dataPoints";
 
 export default function CVForm() {
     const workExperienceRef = useRef();
@@ -30,115 +36,70 @@ export default function CVForm() {
     const LanguageRef = useRef();
     const SkillRef = useRef();
 
-    // reusable data points
-    let emptyWorkExp = {
-        title: "",
-        company: "",
-        location: "",
-        description: "",
-        isCurrent: false,
-        start_date: formatDate(new Date()),
-        end_date: formatDate(new Date()),
-    };
-
-    let emptyProject = {
-        title: "",
-        description: "",
-        url: "",
-        start_date: formatDate(new Date()),
-        end_date: formatDate(new Date()),
-    };
-
-    let emptyEducation = {
-        institution: "",
-        studyType: "",
-        degree: "",
-        gpa: "",
-        description: "",
-        start_date: formatDate(new Date()),
-        end_date: formatDate(new Date()),
-    };
-
-    let emptyLang = {
-        name: "",
-        proficiency: "",
-    };
-
+    // global globalRecord
+    const { globalRecord, setGlobalRecord } = useCVContext();
     const [skill, setSkill] = useState("");
 
-    // user records containing all CV information
-    const [record, setRecord] = useState({
-        firstName: null,
-        lastName: null,
-        headLine: null,
-        summary: null,
-        city: null,
-        websiteUrl: null,
-        country: null,
-        email: null,
-        phoneNumber: null,
-        projects: [emptyProject],
-        workExperiences: [emptyWorkExp],
-        education: [emptyEducation],
-        socialLinks: {
-            linkedin: "",
-            twitter: "",
-            github: "",
-            stackoverflow: "",
-        },
-        skills: ["html", "css", "reactjs"],
-        languages: [emptyLang],
-    });
+    // user globalRecords containing all CV information
+    // const [globalRecord, setGlobalRecord] = useState(globalglobalRecord);
+
+    // React.useEffect(() => {
+    //     setGlobalglobalRecord(globalRecord)
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [globalRecord])
 
     const addSkill = (data) => {
         if (data) {
-            let skills = record.skills;
+            let skills = globalRecord.skills;
             skills.push(data);
-            setRecord({ ...record, skills });
+            setGlobalRecord({ ...globalRecord, skills });
             setSkill("");
         }
     };
 
     const removeSkill = (idx) => {
         if (typeof idx === "number") {
-            let skills = record.skills;
+            let skills = globalRecord.skills;
             skills.splice(idx, 1);
-            setRecord({ ...record, skills });
+            setGlobalRecord({ ...globalRecord, skills });
             setSkill("");
         }
     };
 
     const handleInputChange = (name) => (event) => {
-        setRecord({
-            ...record,
+        setGlobalRecord({
+            ...globalRecord,
             [name]: event.target.value,
         });
     };
 
     const handleFieldChange = (name, field, idx, isChecked) => (event) => {
-        let prevData = record[name];
+        let prevData = globalRecord[name];
         prevData[idx][field] = isChecked
             ? event.target.checked
             : event.target.value;
 
-        setRecord({
-            ...record,
+        setGlobalRecord({
+            ...globalRecord,
             [name]: prevData,
         });
     };
 
     const manageWorkExperience = (action, id = null) => {
         if (action === "add") {
-            setRecord({
-                ...record,
-                workExperiences: [...record.workExperiences, emptyWorkExp],
+            setGlobalRecord({
+                ...globalRecord,
+                workExperiences: [
+                    ...globalRecord.workExperiences,
+                    emptyWorkExp,
+                ],
             });
 
             window.scrollTo(0, workExperienceRef.current.offsetTop);
         } else {
-            setRecord({
-                ...record,
-                workExperiences: record.workExperiences.filter(
+            setGlobalRecord({
+                ...globalRecord,
+                workExperiences: globalRecord.workExperiences.filter(
                     (experience, idx) => idx !== id
                 ),
             });
@@ -147,16 +108,16 @@ export default function CVForm() {
 
     const manageLanguage = (action, id = null) => {
         if (action === "add") {
-            setRecord({
-                ...record,
-                languages: [...record.languages, emptyLang],
+            setGlobalRecord({
+                ...globalRecord,
+                languages: [...globalRecord.languages, emptyLang],
             });
 
             window.scrollTo(0, LanguageRef.current.offsetTop);
         } else {
-            setRecord({
-                ...record,
-                languages: record.languages.filter(
+            setGlobalRecord({
+                ...globalRecord,
+                languages: globalRecord.languages.filter(
                     (language, idx) => idx !== id
                 ),
             });
@@ -165,16 +126,16 @@ export default function CVForm() {
 
     const manageEducation = (action, id = null) => {
         if (action === "add") {
-            setRecord({
-                ...record,
-                education: [...record.education, emptyEducation],
+            setGlobalRecord({
+                ...globalRecord,
+                education: [...globalRecord.education, emptyEducation],
             });
 
             window.scrollTo(0, EducationRef.current.offsetTop);
         } else {
-            setRecord({
-                ...record,
-                education: record.education.filter(
+            setGlobalRecord({
+                ...globalRecord,
+                education: globalRecord.education.filter(
                     (education, idx) => idx !== id
                 ),
             });
@@ -182,9 +143,9 @@ export default function CVForm() {
     };
 
     const VisitSkills = () => {
-        setRecord({
-            ...record,
-            skills: [...record.skills],
+        setGlobalRecord({
+            ...globalRecord,
+            skills: [...globalRecord.skills],
         });
 
         window.scrollTo(0, SkillRef.current.offsetTop);
@@ -294,19 +255,19 @@ export default function CVForm() {
                         <Stack direction={["column", "row"]} spacing="24px">
                             <FormInput
                                 placeholder="First name"
-                                value={record.firstName}
+                                value={globalRecord.firstName}
                                 onChange={handleInputChange("firstName")}
                             />
                             <FormInput
                                 placeholder="Last name"
-                                value={record.lastName}
+                                value={globalRecord.lastName}
                                 onChange={handleInputChange("lastName")}
                             />
                         </Stack>
                         <Stack direction={["column", "row"]} spacing="24px">
                             <FormInput
                                 placeholder="Headline e.g Software Engineer"
-                                value={record.headLine}
+                                value={globalRecord.headLine}
                                 onChange={handleInputChange("headLine")}
                             />
                         </Stack>
@@ -315,19 +276,19 @@ export default function CVForm() {
                                 focusBorderColor="#181C27"
                                 color="#181C27"
                                 placeholder="Summary"
-                                value={record.summary}
+                                value={globalRecord.summary}
                                 onChange={handleInputChange("summary")}
                             />
                         </Stack>
                         <Stack direction={["column", "row"]} spacing="24px">
                             <FormInput
                                 placeholder="City"
-                                value={record.city}
+                                value={globalRecord.city}
                                 onChange={handleInputChange("city")}
                             />
                             <FormInput
                                 placeholder="Country"
-                                value={record.country}
+                                value={globalRecord.country}
                                 onChange={handleInputChange("country")}
                             />
                         </Stack>
@@ -336,11 +297,13 @@ export default function CVForm() {
                             <FormInput
                                 type="email"
                                 placeholder="Email"
+                                value={globalRecord.email}
                                 onChange={handleInputChange("email")}
                             />
                             <FormInput
                                 type="tel"
                                 placeholder="Phone number"
+                                value={globalRecord.phoneNumber}
                                 onChange={handleInputChange("phoneNumber")}
                             />
                         </Stack>
@@ -352,8 +315,8 @@ export default function CVForm() {
                         </Text>
                         <Divider />
                     </VStack>
-                    {record.workExperiences &&
-                        record.workExperiences.map((work, idx) => (
+                    {globalRecord.workExperiences &&
+                        globalRecord.workExperiences.map((work, idx) => (
                             <VStack
                                 borderRadius={"lg"}
                                 bg="gray.100"
@@ -460,6 +423,7 @@ export default function CVForm() {
                                     <Textarea
                                         focusBorderColor="#181C27"
                                         placeholder="Job Summary"
+                                        textColor="#181C27"
                                         onChange={handleFieldChange(
                                             "workExperiences",
                                             "description",
@@ -481,8 +445,8 @@ export default function CVForm() {
                         </Text>
                         <Divider />
                     </VStack>
-                    {record.education &&
-                        record.education.map((edu, idx) => (
+                    {globalRecord.education &&
+                        globalRecord.education.map((edu, idx) => (
                             <VStack
                                 borderRadius={"lg"}
                                 bg="gray.100"
@@ -585,8 +549,8 @@ export default function CVForm() {
                         </Text>
                         <Divider />
                     </VStack>
-                    {record.projects &&
-                        record.projects.map((project, idx) => (
+                    {globalRecord.projects &&
+                        globalRecord.projects.map((project, idx) => (
                             <VStack
                                 key={idx}
                                 spacing="24px"
@@ -668,8 +632,8 @@ export default function CVForm() {
                         <Divider />
                     </VStack>
                     <HStack spacing="24px" mt={"40px"}>
-                        {record.skills.length > 0 ? (
-                            record.skills.map((skill, idx) => (
+                        {globalRecord.skills.length > 0 ? (
+                            globalRecord.skills.map((skill, idx) => (
                                 <Tag
                                     size={"lg"}
                                     key={idx}
@@ -720,8 +684,8 @@ export default function CVForm() {
                         <Divider />
                     </VStack>
 
-                    {record.languages.length > 0 ? (
-                        record.languages.map((lan, idx) => (
+                    {globalRecord.languages.length > 0 ? (
+                        globalRecord.languages.map((lan, idx) => (
                             <HStack key={idx} spacing="24px" mt={"40px"}>
                                 <Stack
                                     direction={["column", "row"]}
