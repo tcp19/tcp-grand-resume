@@ -1,15 +1,19 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { emptyEducation, emptyLang, emptyProject, emptyWorkExp } from "../utils/dataPoints";
-
+import {
+    emptyEducation,
+    emptyLang,
+    emptyProject,
+    emptyWorkExp,
+} from "../utils/dataPoints";
 
 const CVContext = createContext({
     globalRecord: {},
-    setGlobalRecord: () => { }
+    setGlobalRecord: () => {},
 });
 
 export const useCVContext = () => {
     return useContext(CVContext);
-}
+};
 
 function CVProvider({ children }) {
     const [globalRecord, setGlobalRecord] = useState({
@@ -33,39 +37,37 @@ function CVProvider({ children }) {
         },
         skills: ["html", "css", "reactjs"],
         languages: [emptyLang],
-    }
-    );
-
+    });
 
     const persistToLocalStorage = (data) => {
-        setGlobalRecord(data)
-        localStorage.setItem('record', JSON.stringify(data));
+        setGlobalRecord(data);
+        localStorage.setItem("record", JSON.stringify(data));
         return;
-    }
+    };
 
     const getLocalStorage = () => {
-        const localRecord = localStorage.getItem('record');
+        const localRecord = localStorage.getItem("record");
 
         if (localRecord) {
             setGlobalRecord(JSON.parse(localRecord));
         }
-        return null
-    }
+        return null;
+    };
 
     useEffect(() => {
-        getLocalStorage()
-    }, [])
+        getLocalStorage();
+    }, []);
 
     return (
         <CVContext.Provider
             value={{
                 setGlobalRecord: persistToLocalStorage,
-                globalRecord
-            }}>
+                globalRecord,
+            }}
+        >
             {children}
         </CVContext.Provider>
-
-    )
+    );
 }
 
 export default CVProvider;

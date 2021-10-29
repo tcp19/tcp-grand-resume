@@ -8,9 +8,9 @@ function MyApp({ Component, pageProps }) {
     return (
         <ChakraProvider>
             <CVProvider>
-            <Header />
-            <Component {...pageProps} />
-            <Footer />
+                <Header />
+                <Component {...pageProps} />
+                <Footer />
             </CVProvider>
         </ChakraProvider>
     );

@@ -23,8 +23,12 @@ import { GoProject } from "react-icons/go";
 import { BiWorld } from "react-icons/bi";
 import { MdComputer, MdDeleteOutline } from "react-icons/md";
 import { useCVContext } from "../../context/CVContext";
-import { emptyWorkExp, emptyEducation, emptyLang, emptyProject } from "../../utils/dataPoints";
-
+import {
+    emptyWorkExp,
+    emptyEducation,
+    emptyLang,
+    emptyProject,
+} from "../../utils/dataPoints";
 
 export default function CVForm() {
     const workExperienceRef = useRef();
@@ -85,7 +89,10 @@ export default function CVForm() {
         if (action === "add") {
             setGlobalRecord({
                 ...globalRecord,
-                workExperiences: [...globalRecord.workExperiences, emptyWorkExp],
+                workExperiences: [
+                    ...globalRecord.workExperiences,
+                    emptyWorkExp,
+                ],
             });
 
             window.scrollTo(0, workExperienceRef.current.offsetTop);
