@@ -12,11 +12,13 @@ import {
     ModalFooter,
     useDisclosure,
     useToast,
+    Text
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useCVContext } from "../../context/CVContext";
 import templates from "../../templates";
+import { capitalizeFirst } from "../../utils/capitalizeFirst";
 import { printAsPdf } from "../../utils/printAsPdf";
 
 export default function PreviewCV() {
@@ -91,6 +93,8 @@ export default function PreviewCV() {
                                         height="250"
                                         alt={`template image ${idx}`}
                                     />
+
+                                    <Text align="center" fontSize="lg" textColor="#fff">{capitalizeFirst(template)}</Text>
                                 </Box>
                             ))}
                             <Box

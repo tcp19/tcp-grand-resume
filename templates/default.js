@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { formatDate } from "../utils/formatDate";
 import Link from "next/link";
+import { capitalizeFirst } from "../utils/capitalizeFirst";
 
 export default function DefaultTemplate({ globalRecord }) {
     const {
@@ -42,7 +43,7 @@ export default function DefaultTemplate({ globalRecord }) {
             >
                 <Flex flexWrap={"wrap"} maxW="4xl">
                     <Text fontSize={{ base: "3xl", xl: "5xl" }} color="#323332">
-                        {firstName && firstName} {lastName && lastName}
+                        {firstName && capitalizeFirst(firstName)} {lastName && capitalizeFirst(lastName)}
                     </Text>
                     <Flex
                         my="2"
