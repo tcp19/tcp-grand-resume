@@ -14,6 +14,7 @@ import {
     HStack,
     SimpleGrid,
     Icon,
+    IconButton,
 } from "@chakra-ui/react";
 import React, { useRef, useState } from "react";
 import FormInput from "../../components/FormInput";
@@ -23,12 +24,14 @@ import { GoProject } from "react-icons/go";
 import { BiWorld } from "react-icons/bi";
 import { MdComputer, MdDeleteOutline } from "react-icons/md";
 import { useCVContext } from "../../context/CVContext";
+import { DeletePopOver } from "../../components/Popover";
 import {
     emptyWorkExp,
     emptyEducation,
     emptyLang,
     emptyProject,
 } from "../../utils/dataPoints";
+
 
 export default function CVForm() {
     const workExperienceRef = useRef();
@@ -334,18 +337,20 @@ export default function CVForm() {
                                         spacing="24px"
                                         justifyContent="end"
                                     >
-                                        <Icon
-                                            as={MdDeleteOutline}
-                                            color="#000000"
-                                            fontSize="22px"
-                                            onClick={() =>
-                                                manageWorkExperience(
-                                                    "remove",
-                                                    idx
-                                                )
+                                        <DeletePopOver triggerPopover={function () {
+                                            const data = globalRecord.workExperiences[idx];
+                                            if (data?.company?.length > 1 || data?.title?.length > 1 || data?.description?.length > 1) {
+                                                return true;
                                             }
-                                            cursor="pointer"
-                                        />
+                                            return false;
+                                          }()} onChooseYes={() => manageWorkExperience("remove", idx)}>
+                                               <IconButton
+                                                icon={<MdDeleteOutline />}
+                                                color="#000000"
+                                                fontSize="22px"
+                                                cursor="pointer"
+                                            />
+                                        </DeletePopOver>
                                     </Stack>
                                 )}
                                 <Stack
@@ -464,15 +469,20 @@ export default function CVForm() {
                                         spacing="24px"
                                         justifyContent="end"
                                     >
-                                        <Icon
-                                            as={MdDeleteOutline}
-                                            color="#000000"
-                                            fontSize="22px"
-                                            onClick={() =>
-                                                manageEducation("remove", idx)
+                                        <DeletePopOver triggerPopover={function () {
+                                            const data = globalRecord.education[idx];
+                                            if (data?.institution?.length > 1 || data?.description?.length > 1 || data?.degree?.length > 1) {
+                                                return true;
                                             }
-                                            cursor="pointer"
-                                        />
+                                            return false;
+                                        }()} onChooseYes={() => manageEducation("remove", idx)}>
+                                            <IconButton
+                                                icon={<MdDeleteOutline />}
+                                                color="#000000"
+                                                fontSize="22px"
+                                                cursor="pointer"
+                                            />
+                                        </DeletePopOver>
                                     </Stack>
                                 )}
                                 <Stack
@@ -714,15 +724,20 @@ export default function CVForm() {
                                 </Stack>
 
                                 <Stack>
-                                    <Icon
-                                        as={MdDeleteOutline}
-                                        color="#000000"
-                                        fontSize="22px"
-                                        onClick={() =>
-                                            manageLanguage("remove", idx)
-                                        }
-                                        cursor="pointer"
-                                    />
+                                    <DeletePopOver triggerPopover={function () {
+                                            const data = globalRecord.languages[idx];
+                                            if (data?.name?.length > 1 || data?.proficiency?.length > 1) {
+                                                return true;
+                                            }
+                                            return false;
+                                        }()} onChooseYes={() => manageLanguage("remove", idx)}>
+                                            <IconButton
+                                                icon={<MdDeleteOutline />}
+                                                color="#000000"
+                                                fontSize="22px"
+                                                cursor="pointer"
+                                            />
+                                        </DeletePopOver>
                                 </Stack>
                             </HStack>
                         ))
