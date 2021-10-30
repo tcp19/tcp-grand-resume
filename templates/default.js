@@ -43,7 +43,8 @@ export default function DefaultTemplate({ globalRecord }) {
             >
                 <Flex flexWrap={"wrap"} maxW="4xl">
                     <Text fontSize={{ base: "3xl", xl: "5xl" }} color="#323332">
-                        {firstName && capitalizeFirst(firstName)} {lastName && capitalizeFirst(lastName)}
+                        {firstName && capitalizeFirst(firstName)}{" "}
+                        {lastName && capitalizeFirst(lastName)}
                     </Text>
                     <Flex
                         my="2"

@@ -12,7 +12,7 @@ import {
     ModalFooter,
     useDisclosure,
     useToast,
-    Text
+    Text,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -94,7 +94,13 @@ export default function PreviewCV() {
                                         alt={`template image ${idx}`}
                                     />
 
-                                    <Text align="center" fontSize="lg" textColor="#fff">{capitalizeFirst(template)}</Text>
+                                    <Text
+                                        align="center"
+                                        fontSize="lg"
+                                        textColor="#fff"
+                                    >
+                                        {capitalizeFirst(template)}
+                                    </Text>
                                 </Box>
                             ))}
                             <Box
