@@ -21,3 +21,7 @@ a {
     color: black;
     -webkit-text-fill-color: white;
 }
+
+.chakra-checkbox__control {
+    border: 1px solid black !important;
+}
