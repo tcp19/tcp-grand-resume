@@ -38,18 +38,11 @@ export default function CVForm() {
     const EducationRef = useRef();
     const LanguageRef = useRef();
     const SkillRef = useRef();
-
-    // global globalRecord
-    const { globalRecord, setGlobalRecord } = useCVContext();
-    const [skill, setSkill] = useState("");
+    const ProjectRef = useRef();
 
     // user globalRecords containing all CV information
-    // const [globalRecord, setGlobalRecord] = useState(globalglobalRecord);
-
-    // React.useEffect(() => {
-    //     setGlobalglobalRecord(globalRecord)
-    // // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [globalRecord])
+    const { globalRecord, setGlobalRecord } = useCVContext();
+    const [skill, setSkill] = useState("");
 
     const addSkill = (data) => {
         if (data) {
@@ -88,14 +81,35 @@ export default function CVForm() {
         });
     };
 
-    const manageWorkExperience = (action, id = null) => {
+    const manageProject = (action, id = null) => {
         if (action === "add") {
+            let projects = [...globalRecord.projects];
+            let newProject = Object.assign({}, emptyProject);
+            projects.push(newProject);
+
             setGlobalRecord({
                 ...globalRecord,
-                workExperiences: [
-                    ...globalRecord.workExperiences,
-                    emptyWorkExp,
-                ],
+                projects,
+            });
+
+            window.scrollTo(0, ProjectRef.current.offsetTop);
+        } else {
+            setGlobalRecord({
+                ...globalRecord,
+                projects: globalRecord.projects.filter(
+                    (project, idx) => idx !== id
+                ),
+            });
+        }
+    };
+
+    const manageWorkExperience = (action, id = null) => {
+        if (action === "add") {
+            let newWorkExp = Object.assign({}, emptyWorkExp);
+
+            setGlobalRecord({
+                ...globalRecord,
+                workExperiences: [...globalRecord.workExperiences, newWorkExp],
             });
 
             window.scrollTo(0, workExperienceRef.current.offsetTop);
@@ -111,9 +125,11 @@ export default function CVForm() {
 
     const manageLanguage = (action, id = null) => {
         if (action === "add") {
+            let newLanguage = Object.assign({}, emptyLang);
+
             setGlobalRecord({
                 ...globalRecord,
-                languages: [...globalRecord.languages, emptyLang],
+                languages: [...globalRecord.languages, newLanguage],
             });
 
             window.scrollTo(0, LanguageRef.current.offsetTop);
@@ -129,9 +145,11 @@ export default function CVForm() {
 
     const manageEducation = (action, id = null) => {
         if (action === "add") {
+            let newEducation = Object.assign({}, emptyEducation);
+
             setGlobalRecord({
                 ...globalRecord,
-                education: [...globalRecord.education, emptyEducation],
+                education: [...globalRecord.education, newEducation],
             });
 
             window.scrollTo(0, EducationRef.current.offsetTop);
@@ -166,7 +184,7 @@ export default function CVForm() {
             icon: GiSpellBook,
         },
         {
-            onClick: () => console.log("add project"),
+            onClick: () => manageProject("add"),
             text: "Add Project",
             icon: GoProject,
         },
@@ -439,11 +457,17 @@ export default function CVForm() {
                                 </Stack>
                             </VStack>
                         ))}
-                    {/* <HStack spacing="24px">
-                    <Button bg={"#181C27"} _hover={{ bg: "#181C27" }} mt={4} onClick={() => addWorkExperience()}>Add Work Experience</Button>
-                    <Button bg={"#181C27"} _hover={{ bg: "#181C27" }} mt={4} onClick={() => addWorkExperience()}>Remove Work Experience</Button>
 
-                    </HStack> */}
+                    <Text
+                        my="4"
+                        opacity="0.6"
+                        textColor="#181C27"
+                        fontSize="md"
+                    >
+                        {" "}
+                        NB: Use newlines for bullet points.{" "}
+                    </Text>
+
                     <VStack mt={6} ref={EducationRef} align="start">
                         <Text color="#181C27" fontWeight="bold">
                             Education
@@ -553,13 +577,13 @@ export default function CVForm() {
                             </VStack>
                         ))}
 
-                    <VStack mt={6} align="start">
+                    <VStack mt={6} ref={ProjectRef} align="start">
                         <Text color="#181C27" fontWeight="bold">
                             Projects
                         </Text>
                         <Divider />
                     </VStack>
-                    {globalRecord.projects &&
+                    {globalRecord.projects.length > 0 &&
                         globalRecord.projects.map((project, idx) => (
                             <VStack
                                 key={idx}
@@ -567,9 +591,29 @@ export default function CVForm() {
                                 mt={"40px"}
                                 align="stretch"
                             >
+                                {idx === 0 ? (
+                                    ""
+                                ) : (
+                                    <Stack
+                                        direction={["row"]}
+                                        spacing="24px"
+                                        justifyContent="end"
+                                    >
+                                        <Icon
+                                            as={MdDeleteOutline}
+                                            color="#000000"
+                                            fontSize="22px"
+                                            onClick={() =>
+                                                manageProject("remove", idx)
+                                            }
+                                            cursor="pointer"
+                                        />
+                                    </Stack>
+                                )}
                                 <Stack
                                     direction={["column", "row"]}
                                     spacing="24px"
+                                    textColor="brand.black"
                                 >
                                     <FormInput
                                         placeholder="Title"
@@ -624,6 +668,7 @@ export default function CVForm() {
                                     <Textarea
                                         focusBorderColor="#181C27"
                                         placeholder="Description"
+                                        textColor="#181C27"
                                         onChange={handleFieldChange(
                                             "projects",
                                             "description",

@@ -1,8 +1,7 @@
-import { Container, Box } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import CVForm from "./sections/CVForm";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
 import PreviewCV from "./sections/PreviewCV";
-import Settings from "./sections/Settings";
 
 export default function BulildResume() {
     return (
@@ -28,15 +27,6 @@ export default function BulildResume() {
                         >
                             Preview
                         </Tab>
-                        <Tab
-                            _selected={{
-                                borderColor: "#181C27",
-                                color: "#181C27",
-                            }}
-                            style={{ fontWeight: "bold" }}
-                        >
-                            Settings
-                        </Tab>
                     </TabList>
 
                     <TabPanels>
@@ -45,9 +35,6 @@ export default function BulildResume() {
                         </TabPanel>
                         <TabPanel p="0">
                             <PreviewCV />
-                        </TabPanel>
-                        <TabPanel p="0">
-                            <Settings />
                         </TabPanel>
                     </TabPanels>
                 </Tabs>

@@ -7,16 +7,16 @@ export const emptyWorkExp = {
     location: "",
     description: "",
     isCurrent: false,
-    start_date: formatDate(new Date()),
-    end_date: formatDate(new Date()),
+    start_date: new Date(),
+    end_date: new Date(),
 };
 
 export const emptyProject = {
     title: "",
     description: "",
     url: "",
-    start_date: formatDate(new Date()),
-    end_date: formatDate(new Date()),
+    start_date: new Date(),
+    end_date: new Date(),
 };
 
 export const emptyEducation = {
@@ -25,8 +25,8 @@ export const emptyEducation = {
     degree: "",
     gpa: "",
     description: "",
-    start_date: formatDate(new Date()),
-    end_date: formatDate(new Date()),
+    start_date: new Date(),
+    end_date: new Date(),
 };
 
 export const emptyLang = {
