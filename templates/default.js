@@ -13,7 +13,7 @@ import { formatDate } from "../utils/formatDate";
 import Link from "next/link";
 import { capitalizeFirst } from "../utils/capitalizeFirst";
 
-export default function DefaultTemplate({ globalRecord }) {
+export default function DefaultTemplate({ globalRecord, toPrint }) {
     const {
         firstName,
         lastName,
@@ -35,21 +35,24 @@ export default function DefaultTemplate({ globalRecord }) {
         <>
             <Box
                 maxW={{ xl: "8xl" }}
-                my="2rem"
+                my={toPrint ? "0 !important" : "2rem"}
                 h="auto"
-                px={{ base: "5", xl: "20" }}
+                px={{ base: toPrint ? "20" : "5", xl: "20" }}
                 py="16"
                 bg="#f5f4fc"
             >
                 <Flex flexWrap={"wrap"} maxW="4xl">
-                    <Text fontSize={{ base: "3xl", xl: "5xl" }} color="#323332">
+                    <Text
+                        fontSize={{ base: toPrint ? "5xl" : "3xl", xl: "5xl" }}
+                        color="#323332"
+                    >
                         {firstName && capitalizeFirst(firstName)}{" "}
                         {lastName && capitalizeFirst(lastName)}
                     </Text>
                     <Flex
                         my="2"
                         flexWrap="wrap"
-                        fontSize={{ base: "md", xl: "xl" }}
+                        fontSize={{ base: toPrint ? "xl" : "md", xl: "xl" }}
                         flexDirection="row"
                         justifyContent="flex-start"
                     >
@@ -119,7 +122,7 @@ export default function DefaultTemplate({ globalRecord }) {
                     </Flex>
                     {summary && (
                         <Text
-                            fontSize={{ base: "md", xl: "lg" }}
+                            fontSize={{ base: toPrint ? "lg" : "md", xl: "lg" }}
                             my="3"
                             color="#939598"
                         >
@@ -134,7 +137,13 @@ export default function DefaultTemplate({ globalRecord }) {
                     />
                 </Box>
 
-                <Flex w="100%" flexDirection={{ base: "column ", xl: "row" }}>
+                <Flex
+                    w="100%"
+                    flexDirection={{
+                        base: toPrint ? "row" : "column",
+                        xl: "row",
+                    }}
+                >
                     <Flex flex="0 0 50%" flexDirection="column">
                         {workExperiences.length > 0 && (
                             <>
@@ -167,11 +176,15 @@ export default function DefaultTemplate({ globalRecord }) {
                                                 {title && (
                                                     <Flex
                                                         fontSize={{
-                                                            base: "md",
+                                                            base: toPrint
+                                                                ? "lg"
+                                                                : "3md",
                                                             xl: "lg",
                                                         }}
                                                         flexDirection={{
-                                                            base: "column",
+                                                            base: toPrint
+                                                                ? "row"
+                                                                : "column",
                                                             xl: "row",
                                                         }}
                                                         textColor="#939598"
@@ -228,7 +241,7 @@ export default function DefaultTemplate({ globalRecord }) {
                     </Flex>
 
                     <Flex
-                        ml={{ base: "0", xl: "20" }}
+                        ml={{ base: toPrint ? "20" : "0", xl: "20" }}
                         flex="1"
                         flexDirection="column"
                     >
@@ -266,12 +279,16 @@ export default function DefaultTemplate({ globalRecord }) {
                                                 </Text>
                                                 <Flex
                                                     fontSize={{
-                                                        base: "md",
+                                                        base: toPrint
+                                                            ? "lg"
+                                                            : "md",
                                                         xl: "lg",
                                                     }}
                                                     my="4"
                                                     flexDirection={{
-                                                        base: "column",
+                                                        base: toPrint
+                                                            ? "row"
+                                                            : "column",
                                                         xl: "row",
                                                     }}
                                                     textColor="#939598"
@@ -346,7 +363,9 @@ export default function DefaultTemplate({ globalRecord }) {
                                                 <>
                                                     <Flex
                                                         fontSize={{
-                                                            base: "xs",
+                                                            base: toPrint
+                                                                ? "md"
+                                                                : "xs",
                                                             xl: "md",
                                                         }}
                                                         my="4"

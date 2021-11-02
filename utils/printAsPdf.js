@@ -19,7 +19,7 @@ export const printAsPdf = ({ pageElement, firstName, lastName }) => {
 
         var imgWidth = 210;
         var pageHeight = 295;
-        var imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+        var imgHeight = (5395 * imgWidth) / 6240;
         var heightLeft = imgHeight;
 
         var position = 0;

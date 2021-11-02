@@ -32,7 +32,6 @@ import {
     emptyProject,
 } from "../../utils/dataPoints";
 
-
 export default function CVForm() {
     const workExperienceRef = useRef();
     const EducationRef = useRef();
@@ -355,14 +354,29 @@ export default function CVForm() {
                                         spacing="24px"
                                         justifyContent="end"
                                     >
-                                        <DeletePopOver triggerPopover={function () {
-                                            const data = globalRecord.workExperiences[idx];
-                                            if (data?.company?.length > 1 || data?.title?.length > 1 || data?.description?.length > 1) {
-                                                return true;
+                                        <DeletePopOver
+                                            triggerPopover={(function () {
+                                                const data =
+                                                    globalRecord
+                                                        .workExperiences[idx];
+                                                if (
+                                                    data?.company?.length > 1 ||
+                                                    data?.title?.length > 1 ||
+                                                    data?.description?.length >
+                                                        1
+                                                ) {
+                                                    return true;
+                                                }
+                                                return false;
+                                            })()}
+                                            onChooseYes={() =>
+                                                manageWorkExperience(
+                                                    "remove",
+                                                    idx
+                                                )
                                             }
-                                            return false;
-                                          }()} onChooseYes={() => manageWorkExperience("remove", idx)}>
-                                               <IconButton
+                                        >
+                                            <IconButton
                                                 icon={<MdDeleteOutline />}
                                                 color="#000000"
                                                 fontSize="22px"
@@ -493,13 +507,25 @@ export default function CVForm() {
                                         spacing="24px"
                                         justifyContent="end"
                                     >
-                                        <DeletePopOver triggerPopover={function () {
-                                            const data = globalRecord.education[idx];
-                                            if (data?.institution?.length > 1 || data?.description?.length > 1 || data?.degree?.length > 1) {
-                                                return true;
+                                        <DeletePopOver
+                                            triggerPopover={(function () {
+                                                const data =
+                                                    globalRecord.education[idx];
+                                                if (
+                                                    data?.institution?.length >
+                                                        1 ||
+                                                    data?.description?.length >
+                                                        1 ||
+                                                    data?.degree?.length > 1
+                                                ) {
+                                                    return true;
+                                                }
+                                                return false;
+                                            })()}
+                                            onChooseYes={() =>
+                                                manageEducation("remove", idx)
                                             }
-                                            return false;
-                                        }()} onChooseYes={() => manageEducation("remove", idx)}>
+                                        >
                                             <IconButton
                                                 icon={<MdDeleteOutline />}
                                                 color="#000000"
@@ -769,20 +795,29 @@ export default function CVForm() {
                                 </Stack>
 
                                 <Stack>
-                                    <DeletePopOver triggerPopover={function () {
-                                            const data = globalRecord.languages[idx];
-                                            if (data?.name?.length > 1 || data?.proficiency?.length > 1) {
+                                    <DeletePopOver
+                                        triggerPopover={(function () {
+                                            const data =
+                                                globalRecord.languages[idx];
+                                            if (
+                                                data?.name?.length > 1 ||
+                                                data?.proficiency?.length > 1
+                                            ) {
                                                 return true;
                                             }
                                             return false;
-                                        }()} onChooseYes={() => manageLanguage("remove", idx)}>
-                                            <IconButton
-                                                icon={<MdDeleteOutline />}
-                                                color="#000000"
-                                                fontSize="22px"
-                                                cursor="pointer"
-                                            />
-                                        </DeletePopOver>
+                                        })()}
+                                        onChooseYes={() =>
+                                            manageLanguage("remove", idx)
+                                        }
+                                    >
+                                        <IconButton
+                                            icon={<MdDeleteOutline />}
+                                            color="#000000"
+                                            fontSize="22px"
+                                            cursor="pointer"
+                                        />
+                                    </DeletePopOver>
                                 </Stack>
                             </HStack>
                         ))
