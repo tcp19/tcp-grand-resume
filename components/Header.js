@@ -19,9 +19,22 @@ import {
     ChevronRightIcon,
 } from "@chakra-ui/icons";
 import RouteLink from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Header() {
     const { isOpen, onToggle } = useDisclosure();
+    const [showGetStartedButton, setShowGetStartedButton] = useState(true);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        if (router.route !== "/") {
+            setShowGetStartedButton(false)
+        } else {
+            setShowGetStartedButton(true)
+        }
+    }, [router.route]);
 
     return (
         <Box>
@@ -72,29 +85,33 @@ export default function Header() {
                         Grand resume
                     </Text>
                 </Flex>
-
-                <Stack
-                    flex={{ base: 1, md: 0 }}
-                    justify={"flex-end"}
-                    direction={"row"}
-                    spacing={6}
-                >
-                    <RouteLink href="/build-resume">
-                        <Button
-                            display={{ base: "none", md: "inline-flex" }}
-                            fontSize={"sm"}
-                            fontWeight={600}
-                            color={"white"}
-                            bg={"#181C27"}
-                            href={"#"}
-                            _hover={{
-                                bg: "#181C27",
-                            }}
+                {
+                    showGetStartedButton && (
+                        <Stack
+                            flex={{ base: 1, md: 0 }}
+                            justify={"flex-end"}
+                            direction={"row"}
+                            spacing={6}
                         >
-                            Get started
+                            <RouteLink href="/build-resume">
+                                <Button
+                                    display={{ base: "none", md: "inline-flex" }}
+                                    fontSize={"sm"}
+                                    fontWeight={600}
+                                    color={"white"}
+                                    bg={"#181C27"}
+                                    href={"#"}
+                                    _hover={{
+                                        bg: "#181C27",
+                                    }}
+                                >
+                                    Get started
                         </Button>
-                    </RouteLink>
-                </Stack>
+                            </RouteLink>
+                        </Stack>
+                    )
+                }
+
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
