@@ -166,8 +166,19 @@ export default function PreviewCV() {
                     </Button>
                 </Flex>
             </Box>
-            <div id="resume">
+            <div id="res">
                 <CVTemplate globalRecord={globalRecord} />
+            </div>
+            <div
+                id="resume"
+                style={{
+                    position: "absolute",
+                    top: "-99999px",
+                    left: "-99999px",
+                    width: "80rem",
+                }}
+            >
+                <CVTemplate globalRecord={globalRecord} toPrint={true} />
             </div>
         </>
     );
