@@ -30,9 +30,9 @@ export default function Header() {
 
     useEffect(() => {
         if (router.route !== "/") {
-            setShowGetStartedButton(false)
+            setShowGetStartedButton(false);
         } else {
-            setShowGetStartedButton(true)
+            setShowGetStartedButton(true);
         }
     }, [router.route]);
 
@@ -85,33 +85,30 @@ export default function Header() {
                         Grand resume
                     </Text>
                 </Flex>
-                {
-                    showGetStartedButton && (
-                        <Stack
-                            flex={{ base: 1, md: 0 }}
-                            justify={"flex-end"}
-                            direction={"row"}
-                            spacing={6}
-                        >
-                            <RouteLink href="/build-resume">
-                                <Button
-                                    display={{ base: "none", md: "inline-flex" }}
-                                    fontSize={"sm"}
-                                    fontWeight={600}
-                                    color={"white"}
-                                    bg={"#181C27"}
-                                    href={"#"}
-                                    _hover={{
-                                        bg: "#181C27",
-                                    }}
-                                >
-                                    Get started
-                        </Button>
-                            </RouteLink>
-                        </Stack>
-                    )
-                }
-
+                {showGetStartedButton && (
+                    <Stack
+                        flex={{ base: 1, md: 0 }}
+                        justify={"flex-end"}
+                        direction={"row"}
+                        spacing={6}
+                    >
+                        <RouteLink href="/build-resume">
+                            <Button
+                                display={{ base: "none", md: "inline-flex" }}
+                                fontSize={"sm"}
+                                fontWeight={600}
+                                color={"white"}
+                                bg={"#181C27"}
+                                href={"#"}
+                                _hover={{
+                                    bg: "#181C27",
+                                }}
+                            >
+                                Get started
+                            </Button>
+                        </RouteLink>
+                    </Stack>
+                )}
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
